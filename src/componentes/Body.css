@@ -1,0 +1,112 @@
+/* Reset básico para asegurar que ocupe todo */
+* {
+  box-sizing: border-box;
+}
+
+.main-container {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+
+/* --- ESTILOS DEL HERO --- */
+.hero {
+  background-color: #2941ab;
+  /* El gradiente característico de Spotify */
+  background-image: radial-gradient(farthest-corner at -10% 100%, #8d81d9 0%, transparent 100%),
+                    radial-gradient(farthest-corner at 120% -20%, #ff5a5e 0%, transparent 100%),
+                    radial-gradient(farthest-corner at 100% 100%, #2941ab 0%, transparent 100%);
+  color: white;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-content h1 {
+  font-size: 5rem; /* Texto muy grande */
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+}
+
+.btn-cta {
+  background-color: #191414;
+  color: #1db954; /* Verde Spotify en texto */
+  font-size: 14px;
+  font-weight: 700;
+  padding: 17px 35px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+}
+
+/* --- ESTILOS DE FEATURES --- */
+.features {
+  background-color: white;
+  padding: 70px 20px;
+  text-align: center;
+  color: black;
+}
+
+.features-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-icon-circle {
+  width: 142px;
+  height: 142px;
+  margin-bottom: 30px;
+}
+
+.feature-icon-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.feature-item h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 3rem; }
+  .features-grid { grid-template-columns: 1fr; } /* Una columna en móvil */
+}

@@ -1,0 +1,120 @@
+.footer-container {
+  background-color: #000000;
+  color: white;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 80px 15px 50px;
+  font-size: 16px;
+}
+
+.footer-content {
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-logo-section {
+  flex: 1 1 100%; /* En móvil ocupa todo */
+  margin-bottom: 40px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* En escritorio, el logo ocupa menos */
+@media (min-width: 992px) {
+  .footer-logo-section { flex: 0 0 15%; }
+}
+
+.footer-links-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  gap: 40px;
+}
+
+.link-column h4 {
+  color: #919496;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.link-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.link-column li {
+  margin-bottom: 15px;
+}
+
+.link-column a {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.link-column a:hover {
+  color: #1db954;
+}
+
+.footer-socials-section {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media (min-width: 992px) {
+  .footer-socials-section { margin-top: 0; }
+}
+
+.social-icon {
+  background-color: #222326;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: #1db954;
+}
+
+/* BARRA INFERIOR LEGAL */
+.footer-bottom {
+  max-width: 1170px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #919496;
+}
+
+.legal-nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.legal-nav a {
+  color: #919496;
+  text-decoration: none;
+}
+
+.legal-nav a:hover {
+  color: #1db954;
+}
