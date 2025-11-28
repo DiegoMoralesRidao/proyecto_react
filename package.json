@@ -1,4 +1,3 @@
-
 {
   "name": "proyecto_react",
   "private": true,
@@ -14,6 +13,7 @@
     "bootstrap": "^5.3.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
     "routes": "^2.1.0"
   },
   "devDependencies": {
