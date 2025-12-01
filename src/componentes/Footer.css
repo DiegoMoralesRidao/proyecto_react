@@ -1,120 +1,194 @@
-.footer-container {
+/* Contenedor principal */
+.spotify-footer {
   background-color: #000000;
   color: white;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 80px 15px 50px;
-  font-size: 16px;
+  padding: 70px 20px 40px;
+  font-size: 14px;
 }
 
-.footer-content {
-  max-width: 1170px;
-  margin: 0 auto;
+/* --- PARTE SUPERIOR (Logo, Columnas, Redes) --- */
+.footer-top-content {
+  max-width: 1200px;
+  margin: 0 auto 50px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Para móvil */
 }
 
-.footer-logo-section {
-  flex: 1 1 100%; /* En móvil ocupa todo */
-  margin-bottom: 40px;
+/* 1. Logo */
+.footer-logo-container {
+  flex: 0 0 150px; /* Ancho fijo para el logo */
+  margin-bottom: 30px;
 }
 
-.logo-text {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* En escritorio, el logo ocupa menos */
-@media (min-width: 992px) {
-  .footer-logo-section { flex: 0 0 15%; }
-}
-
-.footer-links-section {
+.spotify-logo-link {
   display: flex;
-  flex-wrap: wrap;
-  flex: 1;
-  gap: 40px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
-.link-column h4 {
-  color: #919496;
-  font-size: 12px;
+.logo-icon-svg {
+  font-size: 2rem;
+  margin-right: 8px;
+}
+
+/* 2. Rejilla de 4 columnas */
+.footer-nav-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1; /* Ocupa el espacio central */
+  max-width: 800px; /* Limita el ancho para que no se separen mucho */
+  margin: 0 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-col h4 {
+  color: #919496; /* Gris claro */
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 20px;
 }
 
-.link-column ul {
+.footer-col ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.link-column li {
+.footer-col li {
   margin-bottom: 15px;
 }
 
-.link-column a {
-  color: white;
+.footer-col a {
   text-decoration: none;
+  color: white;
   font-weight: 400;
+  transition: color 0.2s;
 }
 
-.link-column a:hover {
-  color: #1db954;
+.footer-col a:hover {
+  color: #1db954; /* Verde al pasar el mouse */
 }
 
-.footer-socials-section {
+/* 3. Iconos Redes */
+.footer-social-icons {
   display: flex;
   gap: 15px;
-  margin-top: 20px;
 }
 
-@media (min-width: 992px) {
-  .footer-socials-section { margin-top: 0; }
-}
-
-.social-icon {
+.social-btn {
   background-color: #222326;
-  width: 54px;
-  height: 54px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  cursor: pointer;
-  transition: color 0.3s;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.2s;
 }
 
-.social-icon:hover {
-  color: #1db954;
+.social-btn:hover {
+  background-color: #1db954; /* Fondo verde al hover */
 }
 
-/* BARRA INFERIOR LEGAL */
-.footer-bottom {
-  max-width: 1170px;
-  margin: 40px auto 0;
-  padding-top: 20px;
+/* --- PARTE INFERIOR --- */
+.footer-bottom-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end; /* Alinea abajo */
+  flex-wrap: wrap;
   font-size: 12px;
   color: #919496;
 }
 
-.legal-nav {
+/* Lista legal izquierda */
+.legal-links-list {
   list-style: none;
   padding: 0;
+  margin: 0 0 20px 0;
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
-.legal-nav a {
-  color: #919496;
+.legal-links-list a {
   text-decoration: none;
+  color: #919496;
 }
 
-.legal-nav a:hover {
+.legal-links-list a:hover {
   color: #1db954;
+}
+
+/* Sección derecha (Idioma y Copyright) */
+.bottom-right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.language-selector-btn {
+  background: none;
+  border: none;
+  color: #919496;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.language-selector-btn:hover {
+  color: white;
+}
+
+.globe-icon {
+  font-size: 16px;
+}
+
+.copyright-text {
+  text-align: right;
+}
+
+/* --- Responsive básico --- */
+@media (max-width: 992px) {
+  .footer-top-content {
+    flex-direction: column;
+  }
+  .footer-nav-columns {
+    margin: 30px 0;
+    width: 100%;
+  }
+  .footer-logo-container { margin-bottom: 0; }
+}
+
+@media (max-width: 768px) {
+  .footer-bottom-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bottom-right-section {
+    align-items: flex-start;
+  }
+  .footer-nav-columns {
+    /* En móvil, 2 columnas por fila */
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+  }
 }
