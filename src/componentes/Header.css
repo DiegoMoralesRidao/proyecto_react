@@ -1,221 +1,169 @@
-/*
- * --------------------------------
- * ESTILOS BASE DEL HEADER (Spotify Look)
- * --------------------------------
- */
-
+/* --- Header General --- */
 .spotify-header {
-  background-color: #000000; /* Fondo negro */
-  color: #ffffff;
-  padding: 0 32px;
+  background-color: #000000;
+  width: 100%;
   height: 80px;
-  /* Asegura que el header esté arriba de todo */
-  position: sticky; 
-  top: 0;
-  z-index: 100; 
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .header-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 100%;
 }
 
-/* 1. LOGO */
 .header-logo {
   display: flex;
   align-items: center;
+  color: white;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 20px;
 }
+.logo-icon { font-size: 2.2rem; margin-right: 8px; }
 
-.logo-icon {
-  margin-right: 8px;
-  font-size: 2rem;
-  color: #1ed760; /* Verde Spotify */
-}
-
-/* 3. NAVEGACIÓN */
-.header-nav ul {
+/* --- Navegación --- */
+.nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  padding: 0;
+  gap: 30px;
   margin: 0;
+  padding: 0;
 }
 
-.header-nav li {
-  margin-left: 16px;
-}
-
-.header-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 10px 12px;
-  transition: color 0.2s ease;
-  white-space: nowrap; /* Evita saltos de línea en los enlaces */
-}
-
-.header-nav a:hover {
-  color: #1ed760; /* Verde al hacer hover */
-}
-
-/* Separador */
-.divider {
-  color: #727272; 
-  margin: 0 10px;
-  font-size: 1.5rem;
-}
-
-/* Botón de Iniciar Sesión (Relleno) */
-.auth-link:last-child a {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 12px 32px;
-  border-radius: 500px;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.auth-link:last-child a:hover {
-  color: #000000;
-  background-color: #f0f0f0;
-  transform: scale(1.02);
-}
-
-/*
- * --------------------------------
- * ESTILOS DEL DROPDOWN (Menú Desplegable)
- * --------------------------------
- */
-
-/* Contenedor principal que hace de ancla y activa el hover */
-.dropdown-container {
-  position: relative; /* CRUCIAL: El submenú se posicionará respecto a este */
-  display: block;
-}
-
-.dropdown-title {
-  display: flex; /* Para alinear el texto con la flecha */
+.nav-item {
+  position: relative; /* Necesario para que el desplegable salga aquí */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 80px; /* Altura del header para centrar el hover */
+  display: flex;
   align-items: center;
 }
 
-/* Contenido del Submenú */
-.dropdown-content {
-  display: none; /* OCULTO POR DEFECTO */
-  position: absolute; /* Posiciona respecto a .dropdown-container */
-  top: 100%; /* Aparece justo debajo del título */
-  left: 0;
+/* Enlaces del menú principal */
+.nav-link, .nav-item > a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link:hover { color: #1db954; }
+
+.arrow-icon {
+  font-size: 10px;
+  transition: transform 0.3s;
+}
+
+/* Girar flecha al pasar el ratón por el item */
+.nav-item:hover .arrow-icon {
+  transform: rotate(180deg);
+  color: #1db954;
+}
+
+/* --- CAJA DESPLEGABLE (DROPDOWN) ESTILO SPOTIFY --- */
+.dropdown-box {
+  position: absolute;
+  top: 80px; /* Justo debajo del header */
+  left: -20px; /* Un poco a la izquierda para alinear */
+  background-color: #191414; /* Color gris muy oscuro oficial */
+  min-width: 350px; /* Ancho suficiente para el texto */
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra elegante */
+  
+  /* Oculto por defecto */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-in-out;
+  
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+/* Si es un menú simple (como Descargar), lo hacemos más estrecho */
+.dropdown-box.simple {
   min-width: 180px;
-  background-color: #212121; /* Fondo oscuro similar a Spotify */
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-  z-index: 1000;
-  border-radius: 8px;
-  padding: 8px 0;
-  margin-top: 10px; /* Separación sutil del header */
 }
 
-.dropdown-content li {
-  margin: 0; /* Limpia el margen del <li> principal */
+/* Mostrar al hacer hover en el padre (.nav-item) */
+.nav-item:hover .dropdown-box {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.dropdown-content .dropdown-item {
-  color: #ffffff;
+/* Estilo de cada item dentro del desplegable */
+.dropdown-item {
+  display: flex;
+  flex-direction: column; /* Título arriba, descripción abajo */
   padding: 12px 16px;
   text-decoration: none;
-  display: block; 
-  font-weight: normal;
-  transition: background-color 0.1s ease;
+  color: white;
+  transition: background-color 0.2s;
+  border-radius: 3px;
 }
 
-.dropdown-content .dropdown-item:hover {
-  background-color: #333333; /* Resaltado sutil en el submenú */
-  color: #ffffff; /* Mantiene el color blanco */
+.dropdown-item:hover {
+  background-color: #282828; /* Gris un poco más claro al pasar el ratón */
+  color: white; /* Mantiene texto blanco */
 }
 
-/* COMPORTAMIENTO: Muestra el submenú al pasar el ratón por el contenedor */
-.dropdown-container:hover .dropdown-content {
-  display: block; 
+.dropdown-item strong {
+  font-size: 15px;
+  margin-bottom: 4px;
+  font-weight: 700;
 }
 
-
-/*
- * --------------------------------
- * ESTILOS RESPONSIVE (Menú Móvil)
- * --------------------------------
- */
-
-.menu-toggle {
-  display: none; 
-  font-size: 1.5rem;
-  cursor: pointer;
+.dropdown-item .desc {
+  font-size: 13px;
+  color: #a7a7a7; /* Color grisáceo para la descripción */
+  font-weight: 400;
+  line-height: 1.4;
 }
 
+/* --- Botón Iniciar Sesión y Separador --- */
+.divider { color: white; }
+.login-btn { margin-left: 10px; }
+.nav-link-btn {
+  background-color: white;
+  color: black !important;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.nav-link-btn:hover {
+  transform: scale(1.05);
+  background-color: #f2f2f2;
+}
+
+/* --- Móvil --- */
+.menu-toggle { display: none; color: white; font-size: 24px; cursor: pointer;}
 @media (max-width: 900px) {
-  .menu-toggle {
-    display: block; 
-  }
-
+  .menu-toggle { display: block; }
   .header-nav {
-    display: none; 
-    flex-direction: column;
-    position: absolute;
-    top: 80px; 
-    left: 0;
-    width: 100%;
-    background-color: #000000;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    padding: 20px 0;
-    z-index: 900;
-  }
-
-  .header-nav.active {
-    display: flex; 
-  }
-
-  .header-nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-nav li {
-    margin: 10px 20px;
-    width: 90%;
-  }
-
-  /* Los desplegables se ven verticales en móvil */
-  .dropdown-container {
-    width: 100%;
-  }
-  
-  .dropdown-content {
-    position: static; /* No flotante, se integra al flujo */
-    width: 100%;
-    margin-top: 0;
-    padding: 0;
-    background-color: transparent; 
-    box-shadow: none;
-    border-radius: 0;
-  }
-
-  .dropdown-content .dropdown-item {
-    padding-left: 25px; 
-  }
-
-  /* Oculta el divisor en móvil */
-  .divider {
     display: none;
+    position: absolute; top: 80px; left: 0; width: 100%; background: black;
   }
-
-  /* Desactiva el hover para móviles, ya que se activan con el menú móvil principal */
-  .dropdown-container:hover .dropdown-content {
-    display: none; 
-  }
-  .dropdown-container:hover .dropdown-content {
-  display: block; 
-}
+  .header-nav.active { display: flex; flex-direction: column; }
+  .nav-list { flex-direction: column; width: 100%; padding: 20px; box-sizing: border-box; }
+  .nav-item { height: auto; width: 100%; display: block; margin-bottom: 20px; }
+  .dropdown-box { position: static; visibility: visible; opacity: 1; transform: none; background: transparent; padding-left: 20px; box-shadow: none; display: none; }
+  .nav-item:hover .dropdown-box { display: block; }
 }
