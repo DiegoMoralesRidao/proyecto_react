@@ -1,0 +1,6 @@
+.page-container {
+  background-color: black;
+  min-height: 80vh; /* Ocupa al menos el 80% de la altura de la pantalla */
+  padding: 20px;
+  color: white; /* Para que el texto del h1 sea visible */
+}

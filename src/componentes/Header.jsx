@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaSpotify, FaBars, FaChevronDown } from 'react-icons/fa';
 import './Header.css';
 
@@ -15,10 +16,10 @@ const Header = () => {
       <div className="header-container">
         
         {/* LOGO */}
-        <div className="header-logo">
+        <Link to="/" className="header-logo">
           <FaSpotify className="logo-icon" />
           <span>Spotify</span>
-        </div>
+        </Link>
 
         {/* MENÚ HAMBURGUESA (MÓVIL) */}
         <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
@@ -37,33 +38,33 @@ const Header = () => {
               
               {/* CAJA DESPLEGABLE */}
               <div className={`dropdown-box ${isDropdownOpen ? 'active' : ''}`}>
-                <a href="#individual" className="dropdown-item">
+                <Link to="/premium-individual" className="dropdown-item">
                   <strong>Premium Individual</strong>
                   <span className="desc">1 cuenta para una persona.</span>
-                </a>
-                <a href="#duo" className="dropdown-item">
+                </Link>
+                <Link to="/premium-duo" className="dropdown-item">
                   <strong>Premium Duo</strong>
                   <span className="desc">2 cuentas para parejas en un mismo domicilio.</span>
-                </a>
-                <a href="#familiar" className="dropdown-item">
+                </Link>
+                <Link to="/premium-familiar" className="dropdown-item">
                   <strong>Premium Familiar</strong>
                   <span className="desc">Hasta 6 cuentas para familiares que viven en un mismo domicilio.</span>
-                </a>
-                <a href="#estudiantes" className="dropdown-item">
+                </Link>
+                <Link to="/premium-estudiantes" className="dropdown-item">
                   <strong>Premium para Estudiantes</strong>
                   <span className="desc">1 cuenta con descuento para estudiantes que cumplan los requisitos.</span>
-                </a>
+                </Link>
               </div>
             </li>
 
-            <li className="nav-item"><a href="#" className="nav-link">Asistencia</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Descargar</a></li>
+            <li className="nav-item"><Link to="/asistencia" className="nav-link">Asistencia</Link></li>
+            <li className="nav-item"><Link to="/descargar" className="nav-link">Descargar</Link></li>
 
             <li className="divider">|</li>
 
-            <li className="nav-item"><a href="#" className="nav-link">Registrarse</a></li>
+            <li className="nav-item"><Link to="/registrarse" className="nav-link">Registrarse</Link></li>
             <li className="nav-item">
-              <a href="#" className="nav-link">Iniciar sesión</a>
+              <Link to="/iniciar-sesion" className="nav-link">Iniciar sesión</Link>
             </li>
           </ul>
         </nav>
