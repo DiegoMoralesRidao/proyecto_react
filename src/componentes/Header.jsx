@@ -4,6 +4,11 @@ import './Header.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <header className="spotify-header">
@@ -26,12 +31,12 @@ const Header = () => {
             
             {/* --- ITEM 1: PLANES PREMIUM (ESTILO COMPLETO) --- */}
             <li className="nav-item">
-              <span className="nav-link">
-                Planes Premium <FaChevronDown className="arrow-icon"/>
+              <span className="nav-link" onClick={toggleDropdown}>
+                Planes Premium <FaChevronDown className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}/>
               </span>
               
               {/* CAJA DESPLEGABLE */}
-              <div className="dropdown-box">
+              <div className={`dropdown-box ${isDropdownOpen ? 'active' : ''}`}>
                 <a href="#individual" className="dropdown-item">
                   <strong>Premium Individual</strong>
                   <span className="desc">1 cuenta para una persona.</span>
@@ -51,30 +56,14 @@ const Header = () => {
               </div>
             </li>
 
-            {/* ITEM 2: ASISTENCIA (SIMPLE) */}
-            <li className="nav-item">
-              <span className="nav-link">Asistencia <FaChevronDown className="arrow-icon"/></span>
-              <div className="dropdown-box simple">
-                <a href="#ayuda" className="dropdown-item"><strong>Ayuda</strong></a>
-                <a href="#comunidad" className="dropdown-item"><strong>Comunidad</strong></a>
-              </div>
-            </li>
-
-            {/* ITEM 3: DESCARGAR (SIMPLE) */}
-            <li className="nav-item">
-              <span className="nav-link">Descargar <FaChevronDown className="arrow-icon"/></span>
-              <div className="dropdown-box simple">
-                <a href="#mac" className="dropdown-item"><strong>Mac</strong></a>
-                <a href="#windows" className="dropdown-item"><strong>Windows</strong></a>
-                <a href="#linux" className="dropdown-item"><strong>Linux</strong></a>
-              </div>
-            </li>
+            <li className="nav-item"><a href="#" className="nav-link">Asistencia</a></li>
+            <li className="nav-item"><a href="#" className="nav-link">Descargar</a></li>
 
             <li className="divider">|</li>
 
             <li className="nav-item"><a href="#" className="nav-link">Registrarse</a></li>
-            <li className="nav-item login-btn">
-              <a href="#" className="nav-link-btn">Iniciar sesión</a>
+            <li className="nav-item">
+              <a href="#" className="nav-link">Iniciar sesión</a>
             </li>
           </ul>
         </nav>

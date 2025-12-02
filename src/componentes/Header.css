@@ -67,10 +67,9 @@
   transition: transform 0.3s;
 }
 
-/* Girar flecha al pasar el ratón por el item */
-.nav-item:hover .arrow-icon {
+/* Girar flecha cuando el menú está abierto */
+.arrow-icon.open {
   transform: rotate(180deg);
-  color: #1db954;
 }
 
 /* --- CAJA DESPLEGABLE (DROPDOWN) ESTILO SPOTIFY --- */
@@ -95,13 +94,8 @@
   z-index: 1001;
 }
 
-/* Si es un menú simple (como Descargar), lo hacemos más estrecho */
-.dropdown-box.simple {
-  min-width: 180px;
-}
-
-/* Mostrar al hacer hover en el padre (.nav-item) */
-.nav-item:hover .dropdown-box {
+/* Mostrar el desplegable cuando tiene la clase .active */
+.dropdown-box.active {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -138,20 +132,6 @@
 
 /* --- Botón Iniciar Sesión y Separador --- */
 .divider { color: white; }
-.login-btn { margin-left: 10px; }
-.nav-link-btn {
-  background-color: white;
-  color: black !important;
-  padding: 12px 32px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-.nav-link-btn:hover {
-  transform: scale(1.05);
-  background-color: #f2f2f2;
-}
 
 /* --- Móvil --- */
 .menu-toggle { display: none; color: white; font-size: 24px; cursor: pointer;}
@@ -164,6 +144,15 @@
   .header-nav.active { display: flex; flex-direction: column; }
   .nav-list { flex-direction: column; width: 100%; padding: 20px; box-sizing: border-box; }
   .nav-item { height: auto; width: 100%; display: block; margin-bottom: 20px; }
-  .dropdown-box { position: static; visibility: visible; opacity: 1; transform: none; background: transparent; padding-left: 20px; box-shadow: none; display: none; }
-  .nav-item:hover .dropdown-box { display: block; }
+  .dropdown-box { 
+    position: static; 
+    background: transparent; 
+    padding-left: 20px; 
+    box-shadow: none; 
+    display: none; /* Oculto por defecto en móvil */
+  }
+  .dropdown-box.active {
+    display: block; /* Se muestra con la clase active */
+  }
+  .divider { display: none; }
 }
