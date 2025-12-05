@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaSpotify, FaInstagram, FaFacebookF } from 'react-icons/fa';
 // Importamos el nuevo icono de X (Twitter) y el icono del mundo para el idioma
 import { FaXTwitter } from 'react-icons/fa6'; 

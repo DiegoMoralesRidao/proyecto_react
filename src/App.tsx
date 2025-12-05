@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'; // Estilos globales (si los tienes en la raíz)
 
@@ -8,7 +7,6 @@ import Body from './componentes/Body';
 import Footer from './componentes/Footer';
 
 // Importamos las nuevas páginas
-import Home from './pages/Home';
 import Asistencia from './pages/Asistencia';
 import Descargar from './pages/Descargar';
 import Registrarse from './pages/Registrarse';

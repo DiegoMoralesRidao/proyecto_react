@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaCaretDown } from 'react-icons/fa'; // Icono de flecha para indicar despliegue
 
 const Dropdown = ({ title, items }) => {
