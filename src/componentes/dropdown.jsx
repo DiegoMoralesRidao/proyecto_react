@@ -1,8 +1,6 @@
 import { FaCaretDown } from 'react-icons/fa'; // Icono de flecha para indicar despliegue
 
 const Dropdown = ({ title, items }) => {
-  // El despliegue del menú se gestiona completamente con CSS :hover
-  // Esto es más simple y eficiente que usar estado (useState) solo para hover.
   return (
     // Contenedor principal: necesario para aplicar position: relative en CSS
     <div className="dropdown-container">

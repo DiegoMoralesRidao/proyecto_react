@@ -1,11 +1,11 @@
 /* --- 1. SECCIÓN HERO (La chica) --- */
 .download-hero {
-  /* Sustituye esta URL por la foto de la chica con cascos */
+  /* Ajuste y selección de la imagen principal del body */
   background-image: url(/src/assets/banner.jpg); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 580px; /* Altura aproximada de la captura */
+  height: 580px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,14 +43,14 @@
 
 /* Botón estilo Microsoft Store */
 .btn-microsoft-big {
-  background-color: #333; /* Gris oscuro */
+  background-color: #333; 
   border: 1px solid #999;
   border-radius: 8px;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   gap: 15px;
-  margin: 0 auto 20px; /* Centrado */
+  margin: 0 auto 20px; 
   cursor: pointer;
   color: white;
   transition: transform 0.2s;
@@ -113,12 +113,12 @@
 /* --- 3. SECCIÓN DISPOSITIVOS (Cerezas) --- */
 .devices-section {
   background-color: #2941ab; 
-  /* Fíjate en los dos puntos al principio */
+  /* Seleccion de la imagen de las cerezas */
   background-image: url('../assets/platform_cherries.jpg');
   
-  /* Asegúrate de añadir estas propiedades para que se vea bien */
-  background-size: cover;      /* La imagen cubre todo el fondo */
-  background-position: center; /* La imagen se centra */
+  /* Propiedades para la correcta implementación de la imagen */
+  background-size: cover;     
+  background-position: center; 
   background-repeat: no-repeat; /* No se repite tipo mosaico */
   
   color: white;
@@ -149,7 +149,7 @@
   display: inline-block;
 }
 
-/* Efecto Hover que pediste */
+/* Efecto Hover */
 .device-list li a:hover {
   color: #1db954; /* Verde Spotify al pasar el ratón */
   transform: scale(1.1); /* Se hace un pelín más grande */

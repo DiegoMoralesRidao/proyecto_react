@@ -20,7 +20,7 @@ const Footer = () => {
         {/* 2. LAS 4 COLUMNAS DE ENLACES */}
         <div className="footer-nav-columns">
           
-          {/* Columna 1 */}
+          {/* Columna 1 Empresa */}
           <div className="footer-col">
             <h4>EMPRESA</h4>
             <ul>
@@ -30,7 +30,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 2 */}
+          {/* Columna 2 Comunidades */}
           <div className="footer-col">
             <h4>COMUNIDADES</h4>
             <ul>
@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 3 (Actualizada) */}
+          {/* Columna 3 Enlaces Útiles */}
           <div className="footer-col">
             <h4>ENLACES ÚTILES</h4>
             <ul>
@@ -53,7 +53,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 4 (NUEVA) */}
+          {/* Columna 4 Planes Spotify */}
           <div className="footer-col">
             <h4>PLANES DE SPOTIFY</h4>
             <ul>
@@ -87,7 +87,7 @@ const Footer = () => {
           <li><a href="#accesibilidad">Accesibilidad</a></li>
         </ul>
 
-        {/* Idioma y Copyright (Derecha) */}
+        {/* Idioma y Copyright */}
         <div className="bottom-right-section">
           <button className="language-selector-btn">
             <MdLanguage className="globe-icon" />
