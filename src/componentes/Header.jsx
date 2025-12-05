@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSpotify, FaBars, FaChevronDown } from 'react-icons/fa';
 import './Header.css';
@@ -6,10 +6,29 @@ import './Header.css';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <header className="spotify-header">
@@ -30,8 +49,8 @@ const Header = () => {
         <nav className={`header-nav ${menuOpen ? 'active' : ''}`}>
           <ul className="nav-list">
             
-            {/* --- ITEM 1: PLANES PREMIUM (ESTILO COMPLETO) --- */}
-            <li className="nav-item">
+            {/* --- ITEM 1: PLANES PREMIUM --- */}
+            <li className="nav-item" ref={dropdownRef}>
               <span className="nav-link" onClick={toggleDropdown}>
                 Planes Premium <FaChevronDown className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}/>
               </span>

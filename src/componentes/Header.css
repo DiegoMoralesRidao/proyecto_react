@@ -43,7 +43,7 @@
 .nav-item {
   position: relative; /* Necesario para que el desplegable salga aquí */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  height: 80px; /* Altura del header para centrar el hover */
+  height: 80px; 
   display: flex;
   align-items: center;
 }
@@ -72,16 +72,16 @@
   transform: rotate(180deg);
 }
 
-/* --- CAJA DESPLEGABLE (DROPDOWN) ESTILO SPOTIFY --- */
+/* --- CAJA DESPLEGABLE --- */
 .dropdown-box {
   position: absolute;
-  top: 80px; /* Justo debajo del header */
-  left: -20px; /* Un poco a la izquierda para alinear */
-  background-color: #191414; /* Color gris muy oscuro oficial */
-  min-width: 350px; /* Ancho suficiente para el texto */
+  top: 80px; 
+  left: -20px; 
+  background-color: #191414; 
+  min-width: 350px; 
   padding: 10px;
   border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra elegante */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
   
   /* Oculto por defecto */
   visibility: hidden;
@@ -104,7 +104,7 @@
 /* Estilo de cada item dentro del desplegable */
 .dropdown-item {
   display: flex;
-  flex-direction: column; /* Título arriba, descripción abajo */
+  flex-direction: column; 
   padding: 12px 16px;
   text-decoration: none;
   color: white;
@@ -113,8 +113,8 @@
 }
 
 .dropdown-item:hover {
-  background-color: #282828; /* Gris un poco más claro al pasar el ratón */
-  color: white; /* Mantiene texto blanco */
+  background-color: #282828; 
+  color: white; 
 }
 
 .dropdown-item strong {
@@ -125,7 +125,7 @@
 
 .dropdown-item .desc {
   font-size: 13px;
-  color: #a7a7a7; /* Color grisáceo para la descripción */
+  color: #a7a7a7;
   font-weight: 400;
   line-height: 1.4;
 }

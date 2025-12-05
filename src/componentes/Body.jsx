@@ -10,7 +10,7 @@ const Body = () => {
           <h1>Descargar Spotify</h1>
           <p>Escucha millones de canciones y pódcasts en tu dispositivo.</p>
           
-          {/* --- AQUÍ EMPIEZA EL BOTÓN NUEVO --- */}
+          {/* --- AQUÍ EMPIEZA EL BOTÓN de Microsoft --- */}
           <button className="btn-microsoft-big">
             {/* Icono SVG oficial de Microsoft */}
             <svg 
@@ -31,7 +31,7 @@ const Body = () => {
               <strong>Microsoft Store</strong>
             </div>
           </button>
-          {/* --- AQUÍ TERMINA EL BOTÓN NUEVO --- */}
+          {/* --- AQUÍ TERMINA EL BOTÓN De Microsoft --- */}
 
           <a href="#direct" className="direct-download-link">
             Descárgala directamente desde Spotify
