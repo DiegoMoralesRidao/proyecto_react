@@ -6,20 +6,21 @@ import './Header.css';
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const headerRef = useRef(null);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setDropdownOpen(false);
-    }
-  };
-
   useEffect(() => {
-    if (isDropdownOpen) {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+        setMenuOpen(false);
+      }
+    };
+
+    if (isDropdownOpen || menuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -28,10 +29,10 @@ const Header = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isDropdownOpen]);
+  }, [isDropdownOpen, menuOpen]);
 
   return (
-    <header className="spotify-header">
+    <header className="spotify-header" ref={headerRef}>
       <div className="header-container">
         
         {/* LOGO */}
@@ -50,7 +51,7 @@ const Header = () => {
           <ul className="nav-list">
             
             {/* --- ITEM 1: PLANES PREMIUM --- */}
-            <li className="nav-item" ref={dropdownRef}>
+            <li className="nav-item">
               <span className="nav-link" onClick={toggleDropdown}>
                 Planes Premium <FaChevronDown className={`arrow-icon ${isDropdownOpen ? 'open' : ''}`}/>
               </span>
